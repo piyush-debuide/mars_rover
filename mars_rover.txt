@@ -1,0 +1,38 @@
+inputs
+1.top right co-ordinates
+2.current position of rover
+3.rover instructions (L,R,M)
+
+output
+1.Final position (x,y,direction)
+
+// know out plateau size
+// take current position and instructions
+// calculate rover movement to get final position
+// always throw error if user input or rover position is out of plateu
+// simply return final position
+
+create plateu
+
+validate position
+rover x !> plataeu x, rover y !> plateau y
+
+explore
+take current position and instructions
+
+important: mapping of left, right, move instructions
+
+Example
+
+2, 5 -> plateu top right coordinates
+
+1, 1, E -> current position
+
+LMRM
+
+directions = N(y +) E(x +) S(y -) W(x -)
+current = E
+L -> N
+M -> current y+1
+R -> E
+M -> latest x+1
