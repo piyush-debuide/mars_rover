@@ -5,9 +5,9 @@ import validate from "./validate";
 const explore = (currentX: number, currentY: number, currentDirection: Directions, instruction: string, plateau: Plateau) => {
     let x = currentX;
     let y = currentY;
-    const compass = ['N', 'E', 'S', 'W']
+    const compass = [Directions.N, Directions.E, Directions.S, Directions.W]
     let currentIndex = compass.indexOf(currentDirection);
-    let direction: any = currentDirection;
+    let direction: Directions = currentDirection;
     const instructions = [...instruction]
     instructions.forEach((currentInstruction) => {
         if(currentInstruction === 'L') {
@@ -31,18 +31,28 @@ const explore = (currentX: number, currentY: number, currentDirection: Direction
             }
         }
         else {
-            if(direction === 'N' ) y = y + 1
-            else if(direction === 'S') y = y - 1
-            else if(direction === 'E') x = x + 1
-            else x = x - 1
+            if(direction === 'N' ) {
+                y = y + 1
+            }
+            else if(direction === 'S') {
+                y = y - 1
+            }
+            else if(direction === 'E') {
+                x = x + 1
+            }
+            else {
+                x = x - 1
+            }
             const isValid = validate(x, y, plateau)
-            if(!isValid) throw Error('Out of range');
+            if(!isValid) {
+                throw Error('Out of range')
+            };
         }
     })
-    console.log(direction, x, y);
+    // console.log(direction, x, y);
     return {x, y, direction};
 }
 
-// explore(3,3,Directions.E,'MMRMMRMRRM')
+// explore(3,3,Directions.E,'MMRMMRMRRM', new Plateau(5,5))
 
 export default explore;
