@@ -4,7 +4,7 @@ import Plateau from "./plateau"
 
 it('Should return latest position of rover', () => {
     const plateau = new Plateau(4,4)
-    expect(explore(2,3,Directions.N,'LMRM', plateau)).toEqual({x: 1, y: 4, direction: Directions.N})
+    expect(explore(2,3,Directions.N,'LMRMRMRMRMRM', plateau)).toEqual({x: 1, y: 4, direction: Directions.N})
 })
 
 it('Should throw error if position out of range', () => {
