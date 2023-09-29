@@ -1,13 +1,15 @@
-import { Directions } from "./contants"
-import Plateau from "./plateau";
-import validate from "./validate";
+import { Directions } from "../../../Utils/Constants/contants"
+import Plateau from "../../Plateau/plateau";
+import { IPosition } from "../rover";
+import validate from "../../../Utils/Validate/validate";
 
-const explore = (currentX: number, currentY: number, currentDirection: Directions, instruction: string, plateau: Plateau) => {
-    let x = currentX;
-    let y = currentY;
+const explore = (position: IPosition, instruction: string, plateau: Plateau) => {
+    let x = position.x;
+    let y = position.y;
+    const initialDirection = position.direction;
     const compass = [Directions.N, Directions.E, Directions.S, Directions.W]
-    let currentIndex = compass.indexOf(currentDirection);
-    let direction: Directions = currentDirection;
+    let currentIndex = compass.indexOf(initialDirection);
+    let direction: Directions = initialDirection;
     const instructions = [...instruction]
     instructions.forEach((currentInstruction) => {
         if(currentInstruction === 'L') {

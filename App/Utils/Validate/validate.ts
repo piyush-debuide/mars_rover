@@ -1,4 +1,4 @@
-import Plateau from "./plateau";
+import Plateau from "../../Components/Plateau/plateau";
 
 const validate = (x: number, y: number, plateau: Plateau) => {
     const plateauX = plateau.getX();

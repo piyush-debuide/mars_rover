@@ -1,7 +1,7 @@
-import Plateau from "./plateau"
+import Plateau from "../Plateau/plateau"
 import Rover from "./rover"
 
-const explore = jest.requireActual('./explore')
+const explore = jest.requireActual('./methods/explore')
 const mockedExplore = jest.spyOn(explore, 'default')
 
 describe('Rover', () => {
@@ -9,14 +9,14 @@ describe('Rover', () => {
     const plateau1 = new Plateau(3,5) 
     const rover1 = new Rover(config)
 
-    // ignore
+    // ignore test for dummy method
     it('Should setup successfully', () => {
         expect(rover1.setup()).toEqual('Setup successfull')
     })
 
-    // ignore
+    // ignore test for dummy method
     it('Should get location successfully', () => {
-        expect(rover1.getLocation()).toEqual(expect.anything())
+        expect(rover1.takePhoto()).toEqual('Photo taken')
     })
 
     it('Should explore plateau', () => {

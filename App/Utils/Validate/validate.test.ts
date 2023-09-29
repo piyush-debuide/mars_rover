@@ -1,4 +1,4 @@
-import Plateau from "./plateau"
+import Plateau from "../../Components/Plateau/plateau"
 import validate from "./validate"
 
 describe('Validate', () => {
